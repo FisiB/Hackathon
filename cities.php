@@ -1,0 +1,1 @@
+<?php // cities page content ?>
