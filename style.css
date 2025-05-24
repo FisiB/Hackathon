@@ -1,42 +1,181 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600;800&display=swap');
-
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global */
-body, html {
-    width: 100%;
-    height: 100%;
-    font-family: 'Raleway', sans-serif;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #fce4ec);
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Headers */
-header {
-    width: 100%;
+/* Header Styles */
+.frontpage-header {
+    background: linear-gradient(to right, #ff6f91, #ff9472);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.auth-header {
+    background: linear-gradient(135deg, #ff9800, #ffc107);
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    border-bottom: 4px solid #fff3e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-header {
+    background: linear-gradient(to right, #1976d2, #64b5f6);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.main-header nav a:hover {
+    color: #ffee58;
+}
+
+/* Typography */
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.btn, button {
+    padding: 12px 24px;
+    border: none;
+    background: #00c853;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+}
+.btn:hover, button:hover {
+    background: #69f0ae;
+    transform: scale(1.05);
+}
+
+/* Card Styles */
+.city-card, .place-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     padding: 20px;
     text-align: center;
-    background: linear-gradient(90deg, #00c9ff, #92fe9d);
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.6s ease;
+}
+.city-card:hover, .place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* FRONT PAGE */
+.city-card img, .place-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* Grid Layouts */
+.city-grid, .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 30px;
+}
+
+/* Forms */
+form {
+    max-width: 450px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    font-size: 1rem;
+}
+input:focus, textarea:focus {
+    border-color: #42a5f5;
+    outline: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-header nav {
+        margin-top: 10px;
+    }
+
+    .city-grid, .places-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600;800&display=swap');
+
+/* Frontpage Style */
 .frontpage {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background: linear-gradient(to right, #ffd3a5, #fd6585);
     font-family: 'Pacifico', cursive;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .frontpage h1 {
@@ -49,8 +188,9 @@ header {
 .frontpage p {
     font-size: 1.5rem;
     color: #fff9f9;
-    font-weight: 600;
     margin-bottom: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
 
 .frontpage-buttons {
@@ -68,6 +208,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
+    font-family: 'Raleway', sans-serif;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, background 0.3s;
 }
@@ -76,34 +217,34 @@ header {
     transform: translateY(-3px);
 }
 
-/* HOMEPAGE */
+/* Homepage Style */
 .homepage {
-    height: 100vh;
-    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
     background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    font-family: 'Raleway', sans-serif;
     text-align: center;
-    padding: 20px;
 }
 
 .homepage h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: #0d47a1;
+    margin-bottom: 15px;
     font-weight: 800;
-    margin-bottom: 20px;
 }
 
 .homepage p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #1565c0;
+    margin-bottom: 25px;
     font-weight: 600;
-    margin-bottom: 30px;
 }
 
-.homepage .btn-home {
+.homepage a.btn-home {
     padding: 12px 24px;
     background: #ffffff;
     color: #2196f3;
@@ -111,119 +252,244 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transition: background 0.3s, transform 0.3s;
 }
 
-.homepage .btn-home:hover {
+.homepage a.btn-home:hover {
     background: #e3f2fd;
     transform: translateY(-3px);
 }
+/* Font setup */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Cities */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
 .city-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 30px;
 }
 
 .city-card {
-    width: 280px;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .city-card:hover {
-    transform: translateY(-10px);
+  transform: scale(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
 }
 
 .city-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.city-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .city-card .content {
-    padding: 20px;
-    text-align: center;
+  padding: 15px;
+  text-align: center;
 }
 
 .city-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-    color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
 }
 
 .city-card p {
-    color: #666;
-    font-size: 0.95rem;
+  font-size: 1rem;
+  color: #555;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Login & Register */
-.auth-container {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
 }
 
-.auth-box {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    width: 360px;
+.welcome {
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+.welcome h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.welcome .btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.welcome .btn:hover {
+  background-color: #ff4c4c;
+}
+.frontpage-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  font-family: 'Poppins', sans-serif;
+}
+
+.frontpage-main section {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+.frontpage-main h2 {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.frontpage-main p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-group .btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.button-group .btn:hover {
+  background-color: #2980b9;
+}
+/* Apply background and font to all pages */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f2f2f2, #dfe9f3); /* soft light gradient */
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Container for centered content */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
     text-align: center;
 }
 
-.auth-box h2 {
+/* Headings */
+.page-container h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
     margin-bottom: 20px;
-    font-family: 'Pacifico', cursive;
-    color: #ff4081;
-    font-size: 2rem;
+    font-weight: 600;
 }
 
-.auth-box input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+/* Paragraphs */
+.page-container p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
     font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin: 10px;
 }
 
-.auth-box button {
-    width: 100%;
-    padding: 12px;
-    background: #ff4081;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+.btn:hover {
+    background-color: #2980b9;
+}
+.city-card img {
+  width: 100%;
+  max-width: 600px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.city-card {
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
 }
 
-.auth-box button:hover {
-    background: #ff6f91;
-}
-
-/* Responsive Fix */
-@media (max-width: 600px) {
-    .frontpage h1, .homepage h1 {
-        font-size: 2rem;
-    }
-    .frontpage p, .homepage p {
-        font-size: 1rem;
-    }
-    .auth-box {
-        width: 90%;
-    }
+.city-card:hover {
+  transform: scale(1.03);
 }
