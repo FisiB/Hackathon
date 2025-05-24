@@ -1,6 +1,5 @@
-</div>
-<footer>
-    <p>&copy; <?= date("Y") ?> City Tourist Reviews. All rights reserved.</p>
+<footer class="main-footer">
+    <p>&copy; <?= date('Y') ?> City Explorer. All rights reserved.</p>
 </footer>
 </body>
 </html>

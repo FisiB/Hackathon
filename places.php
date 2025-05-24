@@ -1,28 +1,38 @@
 <?php
-include("auth.php");
-requireLogin();
-include("db.php");
-include("header.php");
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+include 'main_header.php';
+include 'db.php';
 
-$city = $_GET['city'] ?? '';
+$city_id = $_GET['city_id'] ?? null;
+if (!$city_id) {
+    echo "<p>Invalid city selected.</p>";
+    exit;
+}
 
-$stmt = $conn->prepare("SELECT * FROM places WHERE city = ?");
-$stmt->bind_param("s", $city);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt = $conn->prepare("SELECT name FROM cities WHERE id = ?");
+$stmt->execute([$city_id]);
+$city = $stmt->fetch();
+
+$stmt = $conn->prepare("SELECT * FROM places WHERE city_id = ?");
+$stmt->execute([$city_id]);
+$places = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-<h2>Places in <?= htmlspecialchars($city) ?></h2>
-
-<?php while ($place = $result->fetch_assoc()): ?>
-    <div class="city-card">
-        <img src="images/<?= htmlspecialchars($place['image']) ?>" alt="<?= htmlspecialchars($place['name']) ?>">
-        <div class="city-info">
-            <h3><?= htmlspecialchars($place['name']) ?></h3>
-            <p><?= htmlspecialchars($place['description']) ?></p>
-            <a href="place.php?id=<?= $place['id'] ?>" class="btn">View Reviews</a>
-        </div>
+<main class="places-section">
+    <h2>Places to Visit in <?= htmlspecialchars($city['name']) ?></h2>
+    <div class="places-grid">
+        <?php foreach ($places as $place): ?>
+            <div class="place-card">
+                <img src="<?= $place['image'] ?>" alt="<?= $place['name'] ?>">
+                <h3><?= $place['name'] ?></h3>
+                <p><?= $place['description'] ?></p>
+                <a href="place.php?place_id=<?= $place['id'] ?>" class="btn">View Details</a>
+            </div>
+        <?php endforeach; ?>
     </div>
-<?php endwhile; ?>
-
-<?php include("footer.php"); ?>
+</main>
+</body>
+</html>
