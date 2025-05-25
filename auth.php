@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
         if ($stmt_prefs->fetch()) {
             header("Location: homepage.php");
         } else {
-            header("Location: questionnaire.php");
+            header("Location: homepage.php");
         }
         exit();
     } else {
@@ -43,6 +43,6 @@ if (isset($_POST['login'])) {
     $_SESSION['username'] = $username;
 
     // New users are directed to the questionnaire
-    header("Location: questionnaire.php");
+    header("Location: homepage.php");
     exit();
 }
