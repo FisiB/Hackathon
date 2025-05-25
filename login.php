@@ -21,4 +21,4 @@ include 'auth_header.php';
         <p>Don't have an account? <a href="register.php">Sign up</a></p>
     </form>
 </main>
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>

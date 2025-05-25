@@ -10,7 +10,7 @@ include 'db.php';
 $place_id = $_GET['place_id'] ?? null;
 if (!$place_id) {
     echo "<p class='no-place-message'>No place selected. Please go back and select a place.</p>";
-    include 'footer.php'; // Include footer for consistent page structure
+    // footer.php inclusion removed
     exit;
 }
 
@@ -75,4 +75,4 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
     </div>
 </main>
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>

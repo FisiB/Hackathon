@@ -14,14 +14,8 @@ if (isset($_POST['login'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
-        // Check for preferences
-        $stmt_prefs = $conn->prepare("SELECT id FROM user_preferences WHERE user_id = ?");
-        $stmt_prefs->execute([$user['id']]);
-        if ($stmt_prefs->fetch()) {
-            header("Location: homepage.php");
-        } else {
-            header("Location: homepage.php");
-        }
+        // Preferences check removed, redirecting directly to homepage
+        header("Location: homepage.php");
         exit();
     } else {
         $_SESSION['login_error'] = "Invalid username or password.";

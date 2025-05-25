@@ -42,4 +42,4 @@
         </div>
     </section>
 </main>
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>

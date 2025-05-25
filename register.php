@@ -18,4 +18,4 @@ include 'auth_header.php';
         <p>Already have an account? <a href="login.php">Login</a></p>
     </form>
 </main>
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>

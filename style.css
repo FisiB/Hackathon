@@ -14,10 +14,11 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #f2f2f2, #dfe9f3); /* soft light gradient */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif; /* Changed default font */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.65; /* Slightly increased line height */
     min-height: 100vh;
+    font-size: 17px; /* Increased base font size */
 }
 
 /* Header Styles */
@@ -53,7 +54,8 @@ body {
     color: white;
     margin-left: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600; /* Adjusted font weight */
+    font-size: 1.05rem;
     transition: color 0.3s ease;
 }
 .main-header nav a:hover {
@@ -61,13 +63,28 @@ body {
 }
 
 /* Typography */
-h1, h2, h3 {
-    margin-bottom: 10px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* Headings font */
+    margin-bottom: 15px; /* Increased margin */
+    font-weight: 600;
+    color: #2c3e50; /* Darker heading color for better contrast */
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
 }
 
 p {
-    margin-bottom: 15px;
-    font-size: 1rem;
+    margin-bottom: 18px; /* Slightly increased margin */
+    font-size: 1.05rem; /* Consistent with base or slightly larger for emphasis */
 }
 
 /* Buttons */
@@ -566,8 +583,10 @@ input:focus, textarea:focus {
 }
 
 .review strong { /* Username */
+    font-family: 'Poppins', sans-serif; /* Changed font for emphasis */
     color: #007bff;
     font-size: 1.1em;
+    font-weight: 600; /* Ensure consistent weight with other Poppins elements */
 }
 
 .review .review-rating { /* Rating span */
@@ -635,9 +654,9 @@ input:focus, textarea:focus {
 
 .places-section h2 {
     text-align: center;
-    color: #333;
+    color: #333; /* Will inherit from general h2 if we remove this */
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 2.2rem; /* Consistent with other h2 */
 }
 
 .no-city-message {
@@ -649,67 +668,6 @@ input:focus, textarea:focus {
     border: 1px solid #d9534f;
     border-radius: 5px;
     margin: 20px;
-}
-
-/* Questionnaire Page Styles */
-.questionnaire-container {
-    max-width: 700px; /* Adjusted for questionnaire form */
-    margin: 30px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.questionnaire-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.questionnaire-container p {
-    text-align: center;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.questionnaire-form fieldset {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
-    background-color: #f9f9f9;
-}
-
-.questionnaire-form legend {
-    font-weight: bold;
-    color: #007bff; /* Bootstrap primary blue, or choose another */
-    padding: 0 10px;
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-.questionnaire-form label {
-    display: block;
-    margin-bottom: 12px;
-    color: #444;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-.questionnaire-form input[type="checkbox"],
-.questionnaire-form input[type="radio"] {
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-.questionnaire-form button.btn {
-    display: block;
-    width: auto;
-    min-width: 250px;
-    margin: 30px auto 0; /* Center button */
-    padding: 12px 25px;
-    font-size: 1.1em;
 }
 
 /* Review Image and Error Styles */
@@ -734,4 +692,96 @@ input:focus, textarea:focus {
     border-radius: 4px;
     margin-bottom: 15px;
     text-align: center;
+}
+
+/* Homepage Layout & Featured Place Styles */
+.homepage-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center sections horizontally */
+    gap: 40px; /* Space between welcome/search and featured place */
+    padding: 30px;
+}
+
+.welcome, .featured-place-section {
+    width: 100%;
+    max-width: 700px; /* Max width for these content blocks */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.search-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px; /* Smaller max-width for search form */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px; /* Reset form's default auto margin */
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    margin-bottom: 0; /* Remove default margin from input */
+}
+
+.search-form button {
+    flex-shrink: 0;
+}
+
+.featured-place-section h3 {
+    font-size: 2rem; /* Consistent with other h2/h3 */
+    color: #3498db; /* A nice highlight color */
+    margin-bottom: 25px;
+}
+
+.featured-place-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* To make the whole card clickable if wrapped in <a> */
+    text-decoration: none;
+    color: inherit;
+    background-color: #f9f9f9; /* Light background for the card itself */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.featured-place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.featured-place-image {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.featured-place-content h4 {
+    font-size: 1.6rem; /* Slightly smaller than section h3 */
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.featured-place-content p {
+    font-size: 1rem; /* Consistent with body text */
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Adjustments for .main-content if it has fixed height */
+.main-content.homepage-layout {
+    height: auto; /* Allow content to define height */
+    min-height: 90vh; /* Ensure it still takes up most of the viewport */
 }

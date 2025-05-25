@@ -72,4 +72,4 @@ if (!empty(trim($search_query))) {
 
 </main>
 
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>

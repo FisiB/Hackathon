@@ -10,7 +10,7 @@ include 'db.php';
 $city_id = $_GET['city_id'] ?? null;
 if (!$city_id) {
     echo "<p class='no-city-message'>Invalid city selected. Please go back and select a city.</p>";
-    include 'footer.php'; // Include footer for consistent page structure
+    // footer.php inclusion removed
     exit;
 }
 
@@ -35,4 +35,4 @@ $places = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </div>
 </main>
-<?php include 'footer.php'; ?>
+<?php // footer.php inclusion removed ?>
