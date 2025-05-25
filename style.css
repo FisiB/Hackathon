@@ -1,3 +1,8 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /* Base Reset */
 * {
     margin: 0;
@@ -6,10 +11,13 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #e3f2fd, #fce4ec);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f2f2f2, #dfe9f3); /* soft light gradient */
+    font-family: 'Poppins', sans-serif;
     color: #333;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* Header Styles */
@@ -80,7 +88,7 @@ p {
 }
 
 /* Card Styles */
-.city-card, .place-card {
+.place-card {
     background: white;
     border-radius: 15px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
@@ -89,12 +97,12 @@ p {
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeInUp 0.6s ease;
 }
-.city-card:hover, .place-card:hover {
+.place-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.city-card img, .place-card img {
+.place-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -162,9 +170,6 @@ input:focus, textarea:focus {
         padding: 20px;
     }
 }
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600;800&display=swap');
-
 /* Frontpage Style */
 .frontpage {
     min-height: 100vh;
@@ -261,17 +266,6 @@ input:focus, textarea:focus {
     background: #e3f2fd;
     transform: translateY(-3px);
 }
-/* Font setup */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fdfdfd;
-  color: #333;
-}
-
 .city-list {
   display: flex;
   flex-wrap: wrap;
@@ -287,6 +281,7 @@ body {
   width: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease;
 }
 
 .city-card:hover {
@@ -321,14 +316,6 @@ body {
   font-size: 1rem;
   color: #555;
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .main-content {
   display: flex;
   justify-content: center;
@@ -421,16 +408,6 @@ body {
 .button-group .btn:hover {
   background-color: #2980b9;
 }
-/* Apply background and font to all pages */
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #f2f2f2, #dfe9f3); /* soft light gradient */
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    min-height: 100vh;
-}
-
 /* Container for centered content */
 .page-container {
     max-width: 900px;
@@ -455,41 +432,306 @@ body {
     line-height: 1.6;
 }
 
-/* Button styling */
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    margin: 10px;
+
+/* City Detail Page Styles */
+.city-detail-container {
+    padding: 40px;
+    text-align: center;
 }
 
-.btn:hover {
-    background-color: #2980b9;
-}
-.city-card img {
-  width: 100%;
-  max-width: 600px;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-}
-.city-card {
-  margin: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 10px;
-  text-align: center;
-  background-color: #f9f9f9;
-  transition: transform 0.3s ease;
+.city-detail-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.city-card:hover {
-  transform: scale(1.03);
+.city-detail-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+    line-height: 1.7;
+}
+
+.city-detail-description2-container {
+    margin-top: 30px;
+}
+
+.city-detail-description2 {
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin: auto;
+    color: #444;
+    line-height: 1.7;
+}
+
+.city-background-image-container {
+    margin: 40px 0;
+}
+
+.city-background-image {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.city-gallery-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.city-gallery-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.city-gallery-image:hover {
+    transform: scale(1.05);
+}
+
+.city-not-found {
+    text-align: center;
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Place Detail Page Styles */
+.place-detail {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.place-detail h2 { /* Title of the place */
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.place-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.place-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.place-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: left; /* Or justify if preferred */
+    padding: 0 15px;
+}
+
+.reviews-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.reviews-section h3 { /* "Reviews" heading */
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.review {
+    background-color: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.review strong { /* Username */
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+.review .review-rating { /* Rating span */
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+    margin: 5px 0;
+}
+
+.review .review-comment { /* Comment paragraph */
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.review-form-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.review-form-section h4 { /* "Leave a Review" heading */
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.review-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.review-form input[type="number"],
+.review-form textarea {
+    margin-bottom: 15px; /* Consistent with general form styles */
+    padding: 10px; /* Consistent with general form styles */
+}
+
+.review-form button { /* Submit review button */
+    display: block; /* Make it block to center with margin auto */
+    width: auto;
+    min-width: 150px;
+    margin: 20px auto 0; /* Add top margin and center */
+}
+
+.no-place-message {
+    text-align: center;
+    color: #d9534f; /* A distinct error color */
+    font-size: 1.2em;
+    padding: 20px;
+    background-color: #fdd;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+}
+
+/* Places List Page Styles */
+.places-section {
+    padding: 20px;
+    max-width: 1200px; /* Allow wider for grid */
+    margin: 20px auto;
+}
+
+.places-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.no-city-message {
+    text-align: center;
+    color: #d9534f;
+    font-size: 1.2em;
+    padding: 20px;
+    background-color: #fdd;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+/* Questionnaire Page Styles */
+.questionnaire-container {
+    max-width: 700px; /* Adjusted for questionnaire form */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.questionnaire-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.questionnaire-container p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.questionnaire-form fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+}
+
+.questionnaire-form legend {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary blue, or choose another */
+    padding: 0 10px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.questionnaire-form label {
+    display: block;
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.questionnaire-form input[type="checkbox"],
+.questionnaire-form input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.questionnaire-form button.btn {
+    display: block;
+    width: auto;
+    min-width: 250px;
+    margin: 30px auto 0; /* Center button */
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+/* Review Image and Error Styles */
+.review-image-container {
+    margin-top: 10px;
+    text-align: left; /* Or center if preferred */
+}
+
+.review-image {
+    max-width: 200px; /* Adjust as needed */
+    max-height: 150px; /* Adjust as needed */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    object-fit: cover;
+}
+
+.review-form-error {
+    color: #d9534f; /* Bootstrap danger color */
+    background-color: #f2dede; /* Bootstrap danger background */
+    border: 1px solid #ebccd1; /* Bootstrap danger border */
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
 }

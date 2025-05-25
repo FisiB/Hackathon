@@ -13,9 +13,20 @@ if (isset($_POST['login'])) {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        header("Location: homepage.php");
+
+        // Check for preferences
+        $stmt_prefs = $conn->prepare("SELECT id FROM user_preferences WHERE user_id = ?");
+        $stmt_prefs->execute([$user['id']]);
+        if ($stmt_prefs->fetch()) {
+            header("Location: homepage.php");
+        } else {
+            header("Location: questionnaire.php");
+        }
+        exit();
     } else {
-        echo "<p>Invalid username or password</p>";
+        $_SESSION['login_error'] = "Invalid username or password.";
+        header("Location: login.php");
+        exit(); // Ensure no further code is executed after redirect
     }
 
 } elseif (isset($_POST['register'])) {
@@ -25,6 +36,13 @@ if (isset($_POST['login'])) {
 
     $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
     $stmt->execute([$username, $email, $password]);
+    $user_id = $conn->lastInsertId(); // Get the ID of the newly registered user
 
-    header("Location: login.php");
+    // Log the new user in directly
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['username'] = $username;
+
+    // New users are directed to the questionnaire
+    header("Location: questionnaire.php");
+    exit();
 }

@@ -13,5 +13,4 @@ include 'main_header.php';
         <a href="cities.php" class="btn">Check the Best Cities to Visit</a>
     </section>
 </main>
-</body>
-</html>
+<?php include 'footer.php'; ?>

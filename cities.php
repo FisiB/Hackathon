@@ -1,14 +1,18 @@
-<?php include 'main_header.php'; ?>
-<link rel="stylesheet" href="style.css">
+<?php
+session_start(); // Ensure session is started for header/footer if they use session vars
+if (!isset($_SESSION['user_id'])) { // Protect page
+    header("Location: login.php");
+    exit;
+}
+include 'main_header.php';
+include 'db.php'; // Include database connection
+?>
 
 <div class="city-list">
 
 <?php
-// Connect to the database
-$pdo = new PDO("mysql:host=localhost;dbname=city_tourist", "root", "");
-
 // Fetch all cities
-$stmt = $pdo->query("SELECT id, name FROM cities ORDER BY name ASC");
+$stmt = $conn->query("SELECT id, name FROM cities ORDER BY name ASC");
 $cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Loop through each city and show image + link
@@ -30,3 +34,4 @@ foreach ($cities as $city) {
 ?>
 
 </div>
+<?php include 'footer.php'; ?>
